@@ -10,8 +10,8 @@ fi
 
 # Editors.
 # --------
-export EDITOR='/usr/local/bin/subl'
-export VISUAL='/usr/local/bin/subl'
+export EDITOR='/usr/local/bin/sublime'
+export VISUAL='/usr/local/bin/sublime'
 export PAGER='less'
 
 # Language.
@@ -51,10 +51,7 @@ typeset -gUT INFOPATH infopath
 
 # Commonly used directories.
 dev="$HOME/Developer"
-br="$dev/brunch"
-ch="$dev/chaplinjs"
-com="$dev/com"
-pm="$dev/paulmillr"
+rh="$dev/rosshamish"
 as="$HOME/Library/Application Support"
 
 # Set the the list of directories that cd searches.

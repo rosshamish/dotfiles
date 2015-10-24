@@ -4,9 +4,6 @@
 # Main
 # ====
 
-# Show battery life percentage.
-defaults write com.apple.menuextra.battery ShowPercent -string "YES"
-
 # Reveal IP address, hostname, OS version, etc. when clicking the clock
 # in the login window
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
@@ -28,7 +25,7 @@ defaults write com.apple.screencapture location "$HOME/Downloads/"
 # =====
 
 # Disable the sound effects on boot
-# sudo nvram SystemAudioVolume=0
+sudo nvram SystemAudioVolume=0
 
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input
 # ===========================================================
@@ -158,24 +155,6 @@ sudo mdutil -E / > /dev/null
 # sleep 1 # Wait a bit to make sure the theme is loaded
 # defaults write com.apple.terminal 'Default Window Settings' -string 'paulmillr'
 # defaults write com.apple.terminal 'Startup Window Settings' -string 'paulmillr'
-
-# Transmission
-# ============
-
-# Use `~/Documents/Torrents` to store incomplete downloads
-defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
-defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Documents/Torrents"
-
-# Don’t prompt for confirmation before downloading
-defaults write org.m0k.transmission DownloadAsk -bool false
-
-# Trash original torrent files
-defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
-
-# Hide the donate message
-defaults write org.m0k.transmission WarningDonate -bool false
-# Hide the legal disclaimer
-defaults write org.m0k.transmission WarningLegal -bool false
 
 # Memory management
 # =================

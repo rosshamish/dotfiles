@@ -1,17 +1,14 @@
 [user]
-	name = Paul Miller
-	email = paul@paulmillr.com
+	name = Ross Anderson
+	email = ross.anderson@ualberta.ca
 
 [github]
-  user = paulmillr
+  user = rosshamish
 
 [alias]
   br = branch
-  cb = "!sh -c 'git branch $1 && git ch $1' -"
-  ctb = "!sh -c 'git cb topics/$1' -"
 
-  ci = commit
-  ch = checkout
+  co = checkout
   fc = commit -am 'Initial commit.'
   cpush = "!sh -c 'git commit -au -m \"$1\" && git push -u origin' -"
   d = diff
@@ -43,7 +40,7 @@
   ui = true
 
 [core]
-  editor = subl
+  editor = sublime
   excludesfile = ~/.gitignore
   #pager = diff-highlight | less -r
 
@@ -57,24 +54,7 @@
 [log]
   abbrevCommit = true
 
-# URL shorthands
-# gh:paulmillr/dotfiles
-[url "git@github.com:"]
-  insteadOf = "gh:"
-  pushInsteadOf = "gh:"
-  pushInsteadOf = "git://github.com/"
-
-# gist:3928760
-[url "git@gist.github.com:"]
-  insteadOf = "gist:"
-  pushInsteadOf = "gist:"
-  pushInsteadOf = "git://gist.github.com/"
-
 [mergetool]
 	keepBackup = false
 [init]
 	templatedir = ~/.git_template
-[ghi]
-	token = !security find-internet-password -a paulmillr -s github.com -l 'ghi token' -w
-[pull]
-	rebase = true
