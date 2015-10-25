@@ -3,6 +3,6 @@ echo 'You might need to change your default shell to zsh: `chsh -s /bin/zsh` (or
 dir="$HOME/Developer/rosshamish"
 mkdir -p $dir
 cd $dir
-git clone --recursive git://github.com/paulmillr/dotfiles.git
+git clone --recursive git://github.com/rosshamish/dotfiles.git
 cd dotfiles
 sudo bash symlink-dotfiles.sh

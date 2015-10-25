@@ -2,7 +2,7 @@
 # and append additions at the top of it.
 
 #<useful>
-127.0.0.1 dev.ost.io
+# 127.0.0.1 dev.ost.io
 #</useful>
 
 #<additional-spyware-sites>

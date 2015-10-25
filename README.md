@@ -1,10 +1,18 @@
 # Dotfiles
 Dotfiles based on http://github.com/paulmillr/dotfiles. See that repo for documentation. Many undocumented changes have been made here.
 
-Installation is done with simple command set (see “building system from scratch” for setup of new system):
+Install dotfiles:
 
 ```
 curl --silent https://raw.githubusercontent.com/rosshamish/dotfiles/master/install.sh | sh
+```
+
+Bootstrap new system (many changes):
+
+```
+curl --silent https://raw.githubusercontent.com/rosshamish/dotfiles/master/install.sh | sh
+cd ~/Developer/rosshamish/dotfiles
+sh bootstrap-new-system.sh
 ```
 
 ## License
