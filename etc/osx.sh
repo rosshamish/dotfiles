@@ -147,13 +147,18 @@ defaults write com.apple.spotlight orderedItems -array \
         '{"enabled" = 0;"name" = "SPREADSHEETS";}' \
         '{"enabled" = 0;"name" = "SOURCE";}'
 
-echo 'Spotlight: rebuild index'
-# Load new settings before rebuilding the index
-killall mds > /dev/null 2>&1
-# Make sure indexing is enabled for the main volume
-sudo mdutil -i on / > /dev/null
-# Rebuild the index from scratch
-sudo mdutil -E / > /dev/null
+echo 'Spotlight: rebuild index?'
+printf '(y/n) [y] '
+read should_rebuild_index
+if [[ $should_rebuild_index == 'y' || -z $should_rebuild_index ]]; then
+  echo 'Rebuilding index...'
+  # Load new settings before rebuilding the index
+  killall mds > /dev/null 2>&1
+  # Make sure indexing is enabled for the main volume
+  sudo mdutil -i on / > /dev/null
+  # Rebuild the index from scratch
+  sudo mdutil -E / > /dev/null
+fi
 
 # Terminal
 # ========

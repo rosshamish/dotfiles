@@ -18,12 +18,13 @@ link() {
   ln -s "$from" "$to"
 }
 
-pushd $dotfiles
+pushd $dotfiles >> /dev/null
 for location in $(find home -name '.*'); do
   file="${location##*/}"
   file="${file%.sh}"
   link "$dotfiles/$location" "$HOME/$file"
 done
+popd >> /dev/null
 
 if [[ `uname` == 'Darwin' ]]; then
   link "$dotfiles/sublime/Packages/User/Preferences.sublime-settings" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
