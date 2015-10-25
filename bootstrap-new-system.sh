@@ -7,7 +7,11 @@ pushd .
 mkdir -p $dev
 cd $dev
 
-echo 'Enter new hostname of the machine (e.g. macbook-paulmillr)'
+echo 'Change machine hostname?'
+echo '(y/n) [n]'
+read should_change_hostname
+if [[ should_change_hostname == 'y' ]]; then
+  echo 'Enter new hostname of the machine (e.g. macbook-paulmillr)'
   read hostname
   echo "Setting new hostname to $hostname..."
   scutil --set HostName "$hostname"
@@ -15,6 +19,7 @@ echo 'Enter new hostname of the machine (e.g. macbook-paulmillr)'
   echo "Setting computer name to $compname"
   scutil --set ComputerName "$compname"
   sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$compname"
+fi
 
 pub=$HOME/.ssh/id_rsa.pub
 echo 'Checking for SSH key, generating one if it does not exist...'
@@ -24,7 +29,7 @@ echo 'Copying public key to clipboard. Paste it into your Github account...'
   [[ -f $pub ]] && cat $pub | pbcopy
   open 'https://github.com/account/ssh'
 
-# If we on OS X, install homebrew and tweak system a bit.
+# If we are on OS X, install homebrew and tweak system a bit.
 if [[ `uname` == 'Darwin' ]]; then
   which -s brew
   if [[ $? != 0 ]]; then
@@ -32,20 +37,16 @@ if [[ `uname` == 'Darwin' ]]; then
       ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
       brew update
       brew install trash node
+      brew tap phinze/homebrew-cask
+      brew install caskroom/cask/brew-cask
   fi
 
   echo 'Tweaking OS X...'
-    source 'etc/osx.sh'
-
-  # http://github.com/sindresorhus/quick-look-plugins
-  echo 'Installing Quick Look plugins...'
-    brew tap phinze/homebrew-cask
-    brew install caskroom/cask/brew-cask
-    brew cask install suspicious-package quicklook-json qlmarkdown qlstephen qlcolorcode
+    source "$dev/rosshamish/dotfiles/etc/osx.sh"
 fi
 
 echo 'Symlinking config files...'
-  source 'symlink-dotfiles.sh'
+  source "$dev/rosshamish/dotfiles/symlink-dotfiles.sh"
 
 open_apps() {
   echo 'Install apps:'
@@ -59,8 +60,8 @@ open_apps() {
   open http://www.sublimetext.com
 }
 
-echo 'Should I give you links for system applications (e.g. Dropbox, Chrome, VLC, Sublime)?'
-echo 'n / y'
+echo 'Open application pages for download? (e.g. Dropbox, Chrome, VLC, Sublime)'
+echo '(y/n) [n]'
 read give_links
 [[ "$give_links" == 'y' ]] && open_apps
 

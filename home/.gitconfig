@@ -21,6 +21,8 @@
   discard = checkout -- .
   rmtag = "!sh -c 'git tag -d $1; git push origin :refs/tags/$1'"
 
+  lg = 
+
   changelog = !sh "$HOME/Developer/paulmillr/dotfiles/git-extras/git-changelog.sh"
   rstatus   = !zsh "$HOME/Developer/paulmillr/dotfiles/git-extras/git-rstatus.sh"
   release   = !sh "$HOME/Developer/paulmillr/dotfiles/git-extras/git-release.sh"

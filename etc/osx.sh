@@ -22,9 +22,8 @@ defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Save screenshots to the downlaods.
-SCREENSHOT_DIR = '$HOME/Documents/Screenshots/'
-echo 'Save screenshots to $SCREENSHOT_DIR'
-defaults write com.apple.screencapture location $SCREENSHOT_DIR
+echo 'Save screenshots to $HOME/Documents/Screenshots/'
+defaults write com.apple.screencapture location "$HOME/Documents/Screenshots/"
 
 # Sound
 # =====
