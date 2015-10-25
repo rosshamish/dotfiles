@@ -4,6 +4,7 @@ Dotfiles and system setup.
 Based on http://github.com/paulmillr/dotfiles. See that repo for documentation. Many undocumented changes have been made here.
 
 Remember to install Source Code Pro from here https://github.com/adobe-fonts/source-code-pro/downloads. Download it, open Font Book, +
+
 ---
 
 Download and symlink dotfiles

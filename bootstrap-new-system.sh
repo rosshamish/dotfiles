@@ -25,9 +25,13 @@ pub=$HOME/.ssh/id_rsa.pub
 echo 'Checking for SSH key, generating one if it does not exist...'
   [[ -f $pub ]] || ssh-keygen -t rsa
 
-echo 'Copying public key to clipboard. Paste it into your Github account...'
+echo 'Copying public key to clipboard. Open Github to paste key in?'
+echo '(y/n) [n]'
+read should_open_github
+if [[ should_open_github == 'y' ]]; then
   [[ -f $pub ]] && cat $pub | pbcopy
   open 'https://github.com/account/ssh'
+fi
 
 # If we are on OS X, install homebrew and tweak system a bit.
 if [[ `uname` == 'Darwin' ]]; then
