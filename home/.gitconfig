@@ -42,7 +42,7 @@
   ui = true
 
 [core]
-  editor = sublime
+  editor = sublime -w
   excludesfile = ~/.gitignore
   #pager = diff-highlight | less -r
 
