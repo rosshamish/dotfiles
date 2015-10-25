@@ -28,4 +28,5 @@ popd >> /dev/null
 
 if [[ `uname` == 'Darwin' ]]; then
   link "$dotfiles/sublime/Packages/User/Preferences.sublime-settings" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+  link "$dotfiles/sublime/Packages/Theme - Soda" "$HOME/Library/Application Support/Sublime Text 3/Packages/Theme - Soda"
 fi

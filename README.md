@@ -3,6 +3,14 @@ Dotfiles and system setup.
 
 Based on http://github.com/paulmillr/dotfiles. See that repo for documentation. Many undocumented changes have been made here.
 
+Sets up the following
+- git (gitconfig, gitignore)
+- zsh (highlighting, autocomplete)
+- sublime 3 (theme = Soda Light, color = Dawn, font = Source Code Pro, various settings)
+- mac os (finder, spotlight, safari, various settings)
+- ssh (generates key if one doesn't exist, opens github to paste it in)
+- homebrew, brew-cask
+
 Remember to install Source Code Pro from here https://github.com/adobe-fonts/source-code-pro/downloads. Download it, open Font Book, +
 
 ---
@@ -27,7 +35,9 @@ cd ~/Developer/rosshamish/dotfiles
 sh bootstrap-new-system.sh
 ```
 
-## License
+---
+
+License
 
 The MIT license.
 

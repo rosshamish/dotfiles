@@ -43,7 +43,7 @@
 	"caret_extra_width": 0,
 	"caret_style": "smooth",
 	"close_windows_when_empty": false,
-	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+	"color_scheme": "Packages/Color Scheme - Default/Dawn.tmTheme",
 	"copy_with_empty_selection": true,
 	"create_window_at_startup": true,
 	"default_encoding": "UTF-8",
@@ -105,8 +105,8 @@
 	"hot_exit": true,
 	"ignored_packages":
 	[
-		"Vintage",
-		"RestructuredText"
+		"RestructuredText",
+		"Vintage"
 	],
 	"indent_guide_options":
 	[
@@ -149,11 +149,12 @@
 	"show_panel_on_build": true,
 	"show_tab_close_buttons": true,
 	"smart_indent": true,
+	"soda_folder_icons": true,
 	"spell_check": false,
 	"spelling_selector": "markup.raw, source string.quoted - punctuation - meta.preprocessor.c.include, source comment - source comment.block.preprocessor, -(source, constant, keyword, storage, support, variable, markup.underline.link, meta.tag)",
 	"tab_completion": true,
 	"tab_size": 4,
-	"theme": "Default.sublime-theme",
+	"theme": "Soda Light 3.sublime-theme",
 	"translate_tabs_to_spaces": false,
 	"tree_animation_enabled": true,
 	"trim_automatic_white_space": true,
