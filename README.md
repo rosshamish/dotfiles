@@ -1,13 +1,23 @@
-# Dotfiles
-Dotfiles based on http://github.com/paulmillr/dotfiles. See that repo for documentation. Many undocumented changes have been made here.
 
-Install dotfiles:
+Dotfiles and system setup.
+
+Based on http://github.com/paulmillr/dotfiles. See that repo for documentation. Many undocumented changes have been made here.
+
+---
+
+Download and symlink dotfiles
+
+This will clone rosshamish/dotfiles into ~/Developer/rosshamish/dotfiles, then symlink ~/.files to ~/Developer/rosshamish/dotfiles/home/.files
 
 ```
 curl --silent https://raw.githubusercontent.com/rosshamish/dotfiles/master/install.sh | sh
 ```
 
-Bootstrap new system (many changes):
+---
+
+Bootstrap new system
+
+This is a lot heavier and will change lots of system settings. Read bootstrap-new-system.sh before executing it. This will also download and symlink dotfiles.
 
 ```
 curl --silent https://raw.githubusercontent.com/rosshamish/dotfiles/master/install.sh | sh
