@@ -10,8 +10,13 @@ fi
 
 # Editors.
 # --------
-export EDITOR='/usr/local/bin/sublime'
-export VISUAL='/usr/local/bin/sublime'
+if [[ "$OSTYPE" == darwin* ]]; then
+  export EDITOR='/usr/local/bin/sublime'
+  export VISUAL='/usr/local/bin/sublime'
+else
+  export EDITOR='vim'
+  export VISUAL='vim'
+fi
 export PAGER='less'
 
 # Language.

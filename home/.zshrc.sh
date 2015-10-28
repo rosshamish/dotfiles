@@ -28,9 +28,6 @@ alias -g l10='| tail -n 10'
 # Disable sertificate check for wget.
 alias wget='wget --no-check-certificate'
 
-# JSHint short-cut.
-alias lint=jshint
-
 # Some OS X-only stuff.
 if [[ "$OSTYPE" == darwin* ]]; then
   # Remove all items safely, to Trash (`brew install trash`).
