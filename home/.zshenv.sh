@@ -59,6 +59,9 @@ dev="$HOME/Developer"
 rh="$dev/rosshamish"
 as="$HOME/Library/Application Support"
 
+# Gopath
+export GOPATH="$rh/go"
+
 # Set the the list of directories that cd searches.
 cdpath=(
   $cdpath
