@@ -61,6 +61,7 @@ as="$HOME/Library/Application Support"
 
 # Gopath
 export GOPATH="$rh/go"
+export PATH="$PATH:$GOPATH/bin"
 
 # Set the the list of directories that cd searches.
 cdpath=(
