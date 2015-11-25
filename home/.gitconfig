@@ -14,6 +14,7 @@
   d = diff
   st = status --short
 
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -M
   graph = log --graph
   last = log -n 10
   url = !git remote -v|sed "'s|.*git[:@]\\(.*\\).git.*|http://\\1|;s|m:|m/|'"|uniq|xargs open
@@ -32,6 +33,11 @@
 
   ghfork = !sh "$HOME/Developer/paulmillr/dotfiles/git-extras/git-ghpull.sh"
   cleanup = !ruby "$HOME/Developer/paulmillr/dotfiles/git-extras/git-cleanup.rb"
+	ci = commit
+	p = push
+	pu = push
+	psh = push
+	get = pull
 
 [push]
   default = current
@@ -45,14 +51,14 @@
   #pager = diff-highlight | less -r
 
 [format]
-  pretty = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
-  graph = true
+  #pretty = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
+  #graph = true
 
 [advice]
   statusHints = false
 
 [log]
-  abbrevCommit = true
+  abbrevCommit = false
 
 [mergetool]
 	keepBackup = false
