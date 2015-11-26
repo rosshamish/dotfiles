@@ -112,7 +112,6 @@ if [[ -d "$TMPDIR" ]]; then
   fi
 fi
 
-
 BROWSER=''
 unset BROWSER
 
