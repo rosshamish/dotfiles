@@ -23,6 +23,11 @@
 	psh = push
 	get = pull
 
+  ##
+  # git-extras
+  #
+  peers = "!sh -c './git-extras/git-peers $@"
+
 [push]
   default = current
 
