@@ -43,10 +43,13 @@ if [[ `uname` == 'Darwin' ]]; then
       brew install trash node
       brew tap phinze/homebrew-cask
       brew install caskroom/cask/brew-cask
+      brew install git-extras
   fi
 
   echo 'Tweaking OS X...'
     source "$dev/rosshamish/dotfiles/etc/osx.sh"
+else; then
+  sudo apt-get install git-extras
 fi
 
 echo 'Symlinking config files...'
