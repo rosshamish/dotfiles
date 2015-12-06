@@ -56,6 +56,8 @@ typeset -gUT INFOPATH infopath
 
 # Commonly used directories.
 dev="$HOME/Developer"
+github="$dev"
+gh="$dev"
 rh="$dev/rosshamish"
 as="$HOME/Library/Application Support"
 
