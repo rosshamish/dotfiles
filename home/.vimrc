@@ -1,3 +1,5 @@
+" Originally taken from https://github.com/skwp/dotfiles/blob/master/vimrc
+
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -11,6 +13,7 @@ endif
 " ================ General Config ====================
 
 set number                      "Line numbers are good
+set ruler                       "Show line and column number in status bar
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom

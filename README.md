@@ -13,7 +13,7 @@ this is now an iTerm2 + zsh + tmux + git + vim setup. There's also some osx twea
 
 ---
 
-You probably just want to do this. It'll symlink config files for git, vim, and tmux
+You probably just want to do this. It'll symlink config files for git, vim, and tmux.
 
 ```
 git clone http://github.com/rosshamish/dotfiles
@@ -21,7 +21,16 @@ cd dotfiles
 ./symlink-dotfiles.sh
 ```
 
-You can also do this. It'll walk you through setting up your system. You'll want to install iTerm2.
+You'll also want to edit your name and email in your .gitconfig like so:
+
+```
+git config --global user.name 'My Name'
+git config --global user.email 'myemail@gmail.com'
+```
+
+---
+
+You can also do this. It'll walk you through setting up the OSX dev environment that I like.
 
 ```
 ./install-interactive.sh

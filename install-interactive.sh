@@ -1,4 +1,10 @@
-#!/usr/bin/env zsh
+#!/bin/bash
+
+owner=rosshamish
+
+dev="$HOME/Developer"
+mkdir -p $dev
+cd $dev
 
 echo '== Interactive script to set up your OSX dev environment =='
 echo 'Ctrl-C to quit at any time.'
@@ -11,13 +17,19 @@ echo '* install zsh and oh-my-zsh'
 echo '* install dotfiles for git, vim, tmux'
 echo '$ setup your iterm2 color scheme, font'
 echo '* set good OSX settings'
+echo ''
+echo "Will use dotfiles at $dev/$owner/dotfiles."
+echo 'Continue?'
+printf '(y/n) [y] '
+read should_main
+if [[ $should_main == 'n' ]]; then
+  echo 'No changes made.'
+  exit
+fi
 
-dev="$HOME/Developer"
+echo "Beginning... using dotfiles at $dev/$owner/dotfiles"
+
 pushd .
-mkdir -p $dev
-cd $dev
-
-echo 'Beginning...'
 
 echo 'Set machine hostname?'
 printf '(y/n) [n] '
@@ -56,31 +68,36 @@ if [[ `uname` == 'Darwin' ]]; then
       brew update
       brew tap phinze/homebrew-cask
       brew install caskroom/cask/brew-cask
-
-    fi
-  fi
-  echo 'Install zsh?'
-  printf '(y/n) [y] '
-  read should_zsh
-  if [[ $should_brew != 'n' && $should_zsh != 'n' ]]; then
-    brew install zsh
-
-    echo 'Install oh-my-zsh?'
-    printf '(y/n) [y] '
-    read should_oh_my_zsh
-    if [[ $should_oh_my_zsh != 'n' ]]; then
-      sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     fi
   fi
 else
   echo 'Nvm, cant install brew, not on OSX'
 fi
 
-echo 'Symlink dotfiles?'
+echo 'Install zsh? (requires brew on macOS)'
+printf '(y/n) [y] '
+read should_zsh
+if [[ $should_brew != 'n' && $should_zsh != 'n' ]]; then
+  if [[ `uname` == 'Darwin' ]]; then
+    brew install zsh
+  else
+    apt-get install zsh
+  fi
+
+  echo 'Install oh-my-zsh?'
+  printf '(y/n) [y] '
+  read should_oh_my_zsh
+  if [[ $should_oh_my_zsh != 'n' ]]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  fi
+fi
+
+echo 'Symlink dotfiles? Itll symlink all these to your $HOME directory:'
+find $dev/$owner/dotfiles/home -mindepth 1 -maxdepth 1 -name ".*"
 printf '(y/n) [y] '
 read should_dotfiles
 if [[ $should_dotfiles != 'n' ]]; then
-  source "$dev/rosshamish/dotfiles/symlink-dotfiles.sh"
+  source "$dev/$owner/dotfiles/symlink-dotfiles.sh"
 fi
 
 echo 'Setup git config?'
@@ -97,7 +114,7 @@ fi
 
 echo 'View suggested iTerm2 setup in browser?'
 echo 'Youll want to'
-echo '* use the .otf font in this directory'
+echo '* use the Menlo font in this directory'
 echo '* use the Solarized Dark theme in this directory'
 printf '(y/n) [n] '
 read view_in_browser
@@ -111,7 +128,7 @@ echo 'This changes a LOT of settings, read ./etc/osx.sh before doing this.'
 printf '(y/n) [n] '
 read should_osx
 if [[ $should_osx == 'y' ]]; then
-  source "$dev/rosshamish/dotfiles/etc/osx.sh"
+  source "$dev/$owner/dotfiles/etc/osx.sh"
 fi
 
 printf '\n== Complete ===\n'
