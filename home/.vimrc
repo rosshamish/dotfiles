@@ -105,6 +105,16 @@ set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
+"
+" ================ Windows =========================
+
+" Move between windows with Ctrl-<movement> rather than Ctrl-W-movement. Nice
+" when the tmux setting for this is on as well.
+map <C-H> <C-W>h
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-L> <C-W>l
+
 " ================ Search ===========================
 
 set incsearch       " Find the next match as we type the search
