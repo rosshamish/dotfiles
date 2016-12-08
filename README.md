@@ -1,38 +1,30 @@
 
 Dotfiles and system setup.
 
-Based on http://github.com/paulmillr/dotfiles. See that repo for documentation. Many undocumented changes have been made here.
+update Dec 7, 2016:
+- update and improve system setup to be lighter and interactive
+- add minimal vimrc from https://github.com/skwp/dotfiles/blob/master/vimrc
+- add minimal tmux.conf from http://raw.githubusercontent.com/mguterl/dotfiles/master/tmux.conf
+- switch to iterm2, previously terminal. color theme and font from https://gist.github.com/kevin-smets/8568070
+- switch to oh-my-zsh, previously zsh settings from paulmillr/dotfiles. Use default robbymiller theme.
+- remove sublime stuff
 
-Sets up the following
-- git (gitconfig, gitignore)
-- zsh (highlighting, autocomplete)
-- sublime 3 (theme = Soda Light, color = Dawn, font = Source Code Pro, various settings)
-- mac os (finder, spotlight, safari, various settings)
-- ssh (generates key if one doesn't exist, opens github to paste it in)
-- homebrew, brew-cask
-
-Remember to install Source Code Pro from here https://github.com/adobe-fonts/source-code-pro/downloads. Download it, open Font Book, +
+this is now an iTerm2 + zsh + tmux + git + vim setup. There's also some osx tweaks available.
 
 ---
 
-Download and symlink dotfiles
-
-This will clone rosshamish/dotfiles into ~/Developer/rosshamish/dotfiles, then symlink ~/.files to ~/Developer/rosshamish/dotfiles/home/.files
+You probably just want to do this. It'll symlink config files for git, vim, and tmux
 
 ```
-curl --silent https://raw.githubusercontent.com/rosshamish/dotfiles/master/install.sh | sh
+git clone http://github.com/rosshamish/dotfiles
+cd dotfiles
+./symlink-dotfiles.sh
 ```
 
----
-
-Bootstrap new system
-
-This is a lot heavier and will change lots of system settings. Read bootstrap-new-system.sh before executing it. This will also download and symlink dotfiles.
+You can also do this. It'll walk you through setting up your system. You'll want to install iTerm2.
 
 ```
-curl --silent https://raw.githubusercontent.com/rosshamish/dotfiles/master/install.sh | sh
-cd ~/Developer/rosshamish/dotfiles
-sh bootstrap-new-system.sh
+./install-interactive.sh
 ```
 
 ---
@@ -41,7 +33,7 @@ License
 
 The MIT license.
 
-Copyright (c) 2013-2015 Paul Miller, Ross Anderson
+Copyright (c) 2016 Ross Anderson
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

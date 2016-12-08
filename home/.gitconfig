@@ -14,14 +14,6 @@
 
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -M
   last = log -n 10
-  url = !git remote -v|sed "'s|.*git[:@]\\(.*\\).git.*|http://\\1|;s|m:|m/|'"|uniq|xargs open
-  whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
-
-	ci = commit
-	p = push
-	pu = push
-	psh = push
-	get = pull
 
   ##
   # git-extras
@@ -35,7 +27,7 @@
   ui = true
 
 [core]
-  editor = sublime -w
+  editor = vim
   excludesfile = ~/.gitignore
   #pager = diff-highlight | less -r
 
@@ -51,5 +43,6 @@
 
 [mergetool]
 	keepBackup = false
+
 [init]
 	templatedir = ~/.git_template
