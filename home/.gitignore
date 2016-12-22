@@ -12,6 +12,7 @@
 # Folders to ignore
 .hg
 .svn
+.vim/backups
 
 # Node.js package manager
 /bower_components

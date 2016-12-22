@@ -13,16 +13,23 @@ fi
 link() {
   from="$1"
   to="$2"
-  echo "Linking '$from' to '$to'"
-  rm -f "$to"
+  echo "$from -> $to"
+  if [[ -f "$to" ]]; then
+    rm -f "$to"
+  else
+    rm -rf "$to"
+  fi
   ln -s "$from" "$to"
 }
 
 pushd $dotfiles >> /dev/null
-for location in $(find home -name '.*'); do
+for location in $(find home -name '.*' -d 1 ); do
   file="${location##*/}"
   file="${file%.sh}"
   link "$dotfiles/$location" "$HOME/$file"
 done
+echo "Done."
+ls -al $HOME | grep -e '\..*'
 popd >> /dev/null
+
 

@@ -4,14 +4,28 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
-" source ~/.vimrc.before if it exists.
-if filereadable(expand("~/.vimrc.before"))
-  source ~/.vimrc.before
-endif
+" ================ Plugins ===========================
+execute pathogen#infect()
+
+" ================ Look and feel =====================
+"use a nice colorscheme, solarized. Options: {dark,light}.
+set background=dark
+colorscheme solarized
+
+"turn on syntax highlighting
+syntax on
+
+" Trackpad scroll
+set mouse=a
+if has("mouse_sgr")
+  set ttymouse=sgr
+else
+  set ttymouse=xterm2
+end
 
 " ================ General Config ====================
 
+set clipboard=unnamedplus     "Use system clipboard
 set number                      "Line numbers are good
 set ruler                       "Show line and column number in status bar
 set backspace=indent,eol,start  "Allow backspace in insert mode
@@ -27,22 +41,9 @@ set autoread                    "Reload files changed outside vim
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
-"turn on syntax highlighting
-syntax on
-
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
-" The mapleader has to be set before vundle starts loading all 
-" the plugins.
 let mapleader=","
-
-" =============== Vundle Initialization ===============
-" This loads all the plugins specified in ~/.vim/vundles.vim
-" Use Vundle plugin to manage all other plugins
-if filereadable(expand("~/.vim/vundles.vim"))
-  source ~/.vim/vundles.vim
-endif
-au BufNewFile,BufRead *.vundle set filetype=vim
 
 " ================ Turn Off Swap Files ==============
 
@@ -105,16 +106,6 @@ set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
-"
-" ================ Windows =========================
-
-" Move between windows with Ctrl-<movement> rather than Ctrl-W-movement. Nice
-" when the tmux setting for this is on as well.
-map <C-H> <C-W>h
-map <C-J> <C-W>j
-map <C-K> <C-W>k
-map <C-L> <C-W>l
-
 " ================ Search ===========================
 
 set incsearch       " Find the next match as we type the search
@@ -123,7 +114,3 @@ set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 set wildignorecase  " Ignore case when :e'ing for a file
 
-" ================ Custom Settings ========================
-" Turned off
-" ==
-" so ~/.yadr/vim/settings.vim

@@ -92,6 +92,19 @@ if [[ $should_brew != 'n' && $should_zsh != 'n' ]]; then
   fi
 fi
 
+echo 'Install vim?'
+printf '(y/n) [y] '
+read should_vim
+if [[ $should_vim != 'n' ]]; then
+  if [[ `uname` == 'Darwin' && $should_brew != 'n' ]]; then
+    brew install vim
+    alias vi /usr/local/bin/vim
+    alias vim /usr/local/bin/vim
+  else
+    apt-get install vim
+  fi
+
+
 echo 'Symlink dotfiles? Itll symlink all these to your $HOME directory:'
 find $dev/$owner/dotfiles/home -mindepth 1 -maxdepth 1 -name ".*"
 printf '(y/n) [y] '
