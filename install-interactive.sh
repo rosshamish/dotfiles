@@ -48,6 +48,8 @@ fi
 pub=$HOME/.ssh/id_rsa.pub
 echo 'Checking for SSH key, generating one if it does not exist...'
   [[ -f $pub ]] || ssh-keygen -t rsa
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
 
 echo 'Copy public key to clipboard?'
 printf '(y/n) [n] '
@@ -103,6 +105,7 @@ if [[ $should_vim != 'n' ]]; then
   else
     apt-get install vim
   fi
+fi
 
 
 echo 'Symlink dotfiles? Itll symlink all these to your $HOME directory:'
